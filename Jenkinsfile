@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Build-1') {
             steps {
-                echo "build on agent-1"
+                echo "build on webhook"
             }
         }
         stage('Test-1') {
