@@ -1,17 +1,19 @@
 pipeline {
-    agent any
+    // agent any
+    // agent { label 'labelName' }
+    agent { node { label 'agent-1' } }
     stages {
-        stage('Build') {
+        stage('Build-1') {
             steps {
                 echo "build"
             }
         }
-        stage('Test') {
+        stage('Test-1') {
             steps {
                 echo "test"
             }
         }
-        stage('Deploy') {
+        stage('Deploy-1') {
             steps {
                 echo "deploy"
             }
