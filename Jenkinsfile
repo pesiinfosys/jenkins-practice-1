@@ -1,21 +1,30 @@
 pipeline {
     // agent any
-    // agent { label 'labelName' }
-    agent { node { label 'agent-1' } }
+    // agent { label 'agent-1' }
+    // agent { node { label 'agent-1' } }
+    // NOTE: agent { node { label 'labelName' } } behaves the same as agent { label 'labelName' }, but node allows for additional options (such as customWorkspace).
+    agent {
+        node {
+            label 'agent-1'
+            customWorkspace '/tmp'
+            }
+    }
+
+    
     stages {
         stage('Build-1') {
             steps {
-                echo "build"
+                echo "build on agent-1"
             }
         }
         stage('Test-1') {
             steps {
-                echo "test"
+                echo "test on agent-1"
             }
         }
         stage('Deploy-1') {
             steps {
-                echo "deploy"
+                echo "deploy on agent-1"
             }
         }
     }
