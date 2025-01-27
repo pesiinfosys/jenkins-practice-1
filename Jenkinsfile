@@ -1,14 +1,14 @@
 pipeline {
     // agent any
-    // agent { label 'agent-1' }
+    agent { label 'agent-1' }
     // agent { node { label 'agent-1' } }
     // NOTE: agent { node { label 'labelName' } } behaves the same as agent { label 'labelName' }, but node allows for additional options (such as customWorkspace).
-    agent {
-        node {
-            label 'agent-1'
-            customWorkspace '/tmp'
-            }
-    }
+    // agent {
+    //     node {
+    //         label 'agent-1'
+    //         customWorkspace '/tmp'
+    //         }
+    // }
 
     
     stages {
@@ -25,7 +25,20 @@ pipeline {
         stage('Deploy-1') {
             steps {
                 echo "deploy on agent-1"
+                lrt
             }
+        }
+    }
+
+    post { 
+        always { 
+            echo 'run always'
+        }
+        success { 
+            echo 'run only after success'
+        }
+        failure { 
+            echo 'run only after failure'
         }
     }
 }
