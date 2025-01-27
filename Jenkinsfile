@@ -25,7 +25,7 @@ pipeline {
         stage('Deploy-1') {
             steps {
                 echo "deploy on agent-1"
-                mkdir siva
+                
             }
         }
     }
