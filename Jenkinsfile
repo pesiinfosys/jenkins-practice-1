@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Test-1') {
             steps {
-                echo "test on agent-1"
+                echo "test on webhook agent-1"
             }
         }
         stage('Deploy-1') {
